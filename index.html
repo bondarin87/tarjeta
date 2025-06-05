@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sergei Bondar - Tarjeta Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0f0f0f;
+      color: #00ff99;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .loader {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #0f0f0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .loader::after {
+      content: 'Cargando Sistema...';
+      font-size: 1.5rem;
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+    .card {
+      background: #1a1a1a;
+      border: 2px solid #00ff99;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 0 20px #00ff99;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    .card.visible { opacity: 1; }
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #00ff99;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin: 0.2rem 0;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: block;
+      margin: 0.5rem auto;
+      padding: 0.6rem 1.2rem;
+      background-color: #00ff99;
+      color: #0f0f0f;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      width: 80%;
+    }
+    .social {
+      margin-top: 1rem;
+    }
+    .social a {
+      color: #00ff99;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader"></div>
+  <div class="card" id="card">
+    <img src="avatar.jpg" alt="Avatar" />
+    <h1>Sergei Bondar</h1>
+    <h2>Ingeniero en Sistemas</h2>
+    <a href="mailto:bondarin87@gmail.com" class="btn">Enviar Correo</a>
+    <a href="https://wa.me/51936276938" class="btn">WhatsApp</a>
+    <a href="https://t.me/sercurity" class="btn">Telegram</a>
+    <div class="social">
+      <a href="https://www.facebook.com/bondaritto">Facebook</a>
+      <a href="https://www.instagram.com/serbondar">Instagram</a>
+      <a href="https://x.com/bondaritto">X</a>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('card').classList.add('visible');
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
